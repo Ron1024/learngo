@@ -13,4 +13,15 @@ func main() {
 
 	fmt.Println(string(b))
 	fmt.Printf("%c\n", b)
+
+	fmt.Println(reverse("Hello world!"))
+
+}
+
+func reverse(str string) string {
+	var severs string
+	for i := 0; i < len(str); i++ {
+		severs += fmt.Sprintf("%c", str[len(str)-i-1])
+	}
+	return severs
 }
