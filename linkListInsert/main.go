@@ -10,10 +10,6 @@ type Student struct {
 	Age   int
 	Score float32
 	next  *Student
-
-	//p	func toString() strin{
-	//	return "{Name = "+Name+",Age="+Age+",Score="+Score+"}"
-	//	}
 }
 
 func trans(p *Student) {
@@ -30,6 +26,12 @@ func main() {
 	stu.Age = 29
 	stu.Score = 99.9
 	insertHead(&stu)
+	// linkListDelete(stu)
+	var newNode *Student = new(Student)
+	newNode.Name = "nima"
+	newNode.Age = 20
+	newNode.Score = 0.1
+	addNode(stu, newNode)
 	trans(stu)
 }
 
@@ -59,5 +61,28 @@ func insertHead(p **Student) {
 		stu.next = *p
 		*p = &stu
 
+	}
+}
+
+func linkListDelete(p *Student) {
+	var prew *Student = p
+	for p != nil {
+		if p.Name == "stu6" {
+			prew.next = p.next
+			break
+		}
+		prew = p
+		p = p.next
+	}
+}
+
+func addNode(p, newNode *Student) {
+	for p != nil {
+		if p.Name == "stu5" {
+			newNode.next = p.next
+			p.next = newNode
+			break
+		}
+		p = p.next
 	}
 }
