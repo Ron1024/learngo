@@ -33,5 +33,10 @@ func Test(rw ReadWriter) {
 
 func main() {
 	var f File
-	Test(&f)
+	// Test(&f)
+
+	var b interface{}
+	b = f
+	v, ok := b.(ReadWriter)
+	fmt.Println(v, ok)
 }
